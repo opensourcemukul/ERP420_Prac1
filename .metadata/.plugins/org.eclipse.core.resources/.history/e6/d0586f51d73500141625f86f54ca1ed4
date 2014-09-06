@@ -1,0 +1,21 @@
+simple Txc
+{
+    parameters:
+        @display("i=block/routing");
+        int delayTime;
+    gates:
+        input in;
+        output out;
+}
+
+network ring
+{
+    submodules:
+        tic: Txc { parameters: @display("i=,green"); };
+        toc: Txc { parameters: @display("i=,gold"); };
+    connections:
+        tic.out --> { delay = 100ms; } --> toc.in;
+        tic.in <-- { delay = 100ms; } <-- toc.out;
+}
+
+

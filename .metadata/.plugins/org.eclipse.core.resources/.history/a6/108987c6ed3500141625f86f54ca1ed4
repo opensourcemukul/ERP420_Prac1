@@ -1,0 +1,182 @@
+#include <stdio.h>
+#include <string.h>
+#include <omnetpp.h>
+
+class Txc : public cSimpleModule
+{
+    private:
+        cMessage *tictocMsg;
+        cMessage *event;
+        bool ack;
+
+    public:
+        Txc();
+        virtual ~Txc();
+
+    protected:
+        virtual void initialize();
+        virtual void handleMessage(cMessage *msg);
+        const char* generateMessageTo(int to);
+        bool isMine(cMessage *msg);
+        bool isLost(cMessage *msg);
+
+};
+
+Define_Module(Txc);
+
+Txc::Txc()
+{
+    event = NULL;
+    tictocMsg = NULL;
+    ack = false;
+}
+
+Txc::~Txc()
+{
+    cancelAndDelete(event);
+    delete tictocMsg;
+}
+
+void Txc::initialize()
+{
+    int me = par("me");
+    event = new cMessage("event");
+
+    if (me == 1)
+    {
+        EV << "Scheduling first send to t=5.0s\n";
+        //tictocMsg = new cMessage(generateMessageTo(3));
+        scheduleAt(5.0, event);
+    }
+
+    /*if (me == 1)
+    {
+        EV << "I wanna talk to 3, I'll just send a message";
+        tictocMsg = new cMessage(generateMessageTo(3));
+        send(tictocMsg,"out");
+    }*/
+
+}
+
+void Txc::handleMessage(cMessage *msg)
+{
+      EV << "Message arrived " << msg << "\n";
+      simtime_t delay = par("delayTime");
+
+      if(msg == event)
+      {
+          int me = par("me");
+
+          if (me == 1)
+          {
+               tictocMsg = new cMessage(generateMessageTo(3));
+               send(tictocMsg,"out");
+               tictocMsg = NULL;
+               ack = false;
+          }
+          else
+             if (me == 3)
+             {
+                 tictocMsg = new cMessage(generateMessageTo(1));
+                 send(tictocMsg,"out");
+                 tictocMsg = NULL;
+                 ack = false;
+             }
+             else
+             {
+                 send(tictocMsg,"out");
+                 ack = false;
+             }
+      }
+      else
+      {
+          if(isLost(msg))
+          {
+              if(ack)
+              {
+                  if (me == 1)
+                  {
+                      tictocMsg = new cMessage(generateMessageTo(3));
+                      scheduleAt(simTime()+delay, event);
+                      ack = true;
+                   }
+                   else
+                       if (me == 3)
+                       {
+                          tictocMsg = new cMessage(generateMessageTo(1));
+                          scheduleAt(simTime()+delay, event);
+                          ack = true;
+                       }
+              }
+              else
+              {
+                  scheduleAt(simTime()+delay, event);
+                  tictocMsg = msg;
+                  ack = false;
+              }
+          }
+
+          if(isMine(msg))
+          {
+               EV << "The Message was for me, am gonna talk back in "<< delay << "s\n";
+               scheduleAt(simTime()+delay, event);
+               tictocMsg = msg;
+               ack = true;
+          }
+          else
+          {
+              EV << "The message was not for me, I'll just send it on in "<< delay << "s\n";
+              scheduleAt(simTime()+delay, event);
+              tictocMsg = msg;
+              ack = false;
+          }
+      }
+
+
+
+}
+
+const char* Txc::generateMessageTo(int to)
+{
+    int me = par("me");
+    char buffer[5];
+    std::string msg = "r";
+    msg = msg + itoa(me,buffer,10);
+    msg = msg + "r";
+    msg = msg + itoa(to,buffer,10);
+    return msg.c_str();
+}
+
+bool Txc::isMine(cMessage *msg)
+{
+    std::string msgstring = msg->getFullName();
+    int who = msgstring[msgstring.size()-1] - '0';
+    int me =  par("me");
+
+    EV << "I am " << me << "\n";
+
+    if(me == who)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+
+}
+
+bool Txc::isLost(cMessage *msg)
+{
+    std::string msgstring = msg->getFullName();
+
+    if(msgstring.compare("Lost"))
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+
+}

@@ -1,0 +1,39 @@
+simple Txc
+{
+    parameters:
+        @display("i=block/routing");
+        int delayTime = default(2);
+        int me = default(0);
+    gates:
+        input in;
+        output out;
+}
+
+network ring
+{
+    @display("bgb=361,189");
+    submodules:
+        r1: Txc {
+            parameters:
+                @display("i=,green;p=120,83");
+        }
+        r2: Txc {
+            parameters:
+                @display("i=,gold;p=210,31");
+        }
+        r3: Txc {
+            parameters:
+                @display("i=,green;p=303,83");
+        }
+        r4: Txc {
+            parameters:
+                @display("i=,gold;p=210,141");
+        }
+    connections:
+        r1.out --> {  delay = 100ms; } --> r2.in;
+        r2.out --> {  delay = 100ms; } --> r3.in;
+        r3.out --> {  delay = 100ms; } --> r4.in;
+        r4.out --> {  delay = 100ms; } --> r1.in;
+}
+
+

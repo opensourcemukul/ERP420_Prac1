@@ -1,0 +1,5 @@
+20:57:24 **** Incremental Build of configuration gcc-debug for project Prac1 ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+
+20:57:24 Build Finished (took 191ms)
+

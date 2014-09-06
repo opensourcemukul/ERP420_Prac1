@@ -1,0 +1,5 @@
+[General]
+network = ring
+seed-0-mt=532569
+Tictoc.tic.delayTime = exponential(3s) 
+Tictoc.toc.delayTime = truncnormal(3s,1s)

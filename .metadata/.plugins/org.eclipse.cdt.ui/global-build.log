@@ -1,0 +1,125 @@
+20:06:45 **** Clean-only build of configuration gcc-debug for project Prac1 ****
+make MODE=debug CONFIGNAME=gcc-debug clean 
+make: *** No rule to make target `clean'.  Stop.
+20:06:51 **** Build of configuration gcc-debug for project Prac1 ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+TX.cc
+Creating executable: out/gcc-debug//Prac1.exe
+ln: cannot remove `./Prac1.exe': Permission denied
+make: *** [all] Error 1
+20:07:56 **** Incremental Build of configuration gcc-debug for project Prac1 ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+20:08:01 **** Incremental Build of configuration gcc-debug for project Prac1 ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+20:09:30 **** Incremental Build of configuration gcc-debug for project Prac1 ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+TX.cc
+Creating executable: out/gcc-debug//Prac1.exe
+20:10:51 **** Incremental Build of configuration gcc-debug for project Prac1 ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+TX.cc
+Creating executable: out/gcc-debug//Prac1.exe
+20:10:54 **** Incremental Build of configuration gcc-debug for project Prac1 ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+20:11:49 **** Incremental Build of configuration gcc-debug for project Prac1 ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+TX.cc
+Creating executable: out/gcc-debug//Prac1.exe
+20:11:52 **** Incremental Build of configuration gcc-debug for project Prac1 ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+20:12:39 **** Incremental Build of configuration gcc-debug for project Prac1 ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+TX.cc
+Creating executable: out/gcc-debug//Prac1.exe
+20:15:18 **** Incremental Build of configuration gcc-debug for project Prac1 ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+TX.cc
+Creating executable: out/gcc-debug//Prac1.exe
+20:15:21 **** Incremental Build of configuration gcc-debug for project Prac1 ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+20:21:29 **** Incremental Build of configuration gcc-debug for project Prac1 ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+TX.cc
+TX.cc:169:6: error: redefinition of 'bool Txc::isLost(cMessage*)'
+TX.cc:154:6: error: 'bool Txc::isLost(cMessage*)' previously defined here
+make: *** [out/gcc-debug//TX.o] Error 1
+20:21:43 **** Incremental Build of configuration gcc-debug for project Prac1 ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+TX.cc
+TX.cc:154:6: error: prototype for 'bool Txc::replyTo(cMessage*)' does not match any in class 'Txc'
+TX.cc:22:13: error: candidate is: int Txc::replyTo(cMessage*)
+TX.cc:169:5: error: prototype for 'int Txc::isLost(cMessage*)' does not match any in class 'Txc'
+TX.cc:21:14: error: candidate is: bool Txc::isLost(cMessage*)
+make: *** [out/gcc-debug//TX.o] Error 1
+20:21:53 **** Incremental Build of configuration gcc-debug for project Prac1 ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+TX.cc
+TX.cc: In member function 'int Txc::replyTo(cMessage*)':
+TX.cc:173:29: error: invalid conversion from 'char' to 'const char*' [-fpermissive]
+In file included from d:/Programs/omnetpp-4.5/include/simutil.h:25:0,
+                 from d:/Programs/omnetpp-4.5/include/cownedobject.h:24,
+                 from d:/Programs/omnetpp-4.5/include/carray.h:23,
+                 from d:/Programs/omnetpp-4.5/include/omnetpp.h:21,
+                 from TX.cc:3:
+d:\programs\omnetpp-4.5\mingw\bin\../lib/gcc/mingw32/4.7.2/../../../../include/stdlib.h:304:37: error:   initializing argument 1 of 'int atoi(const char*)' [-fpermissive]
+make: *** [out/gcc-debug//TX.o] Error 1
+20:22:12 **** Incremental Build of configuration gcc-debug for project Prac1 ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+TX.cc
+Creating executable: out/gcc-debug//Prac1.exe
+20:23:13 **** Incremental Build of configuration gcc-debug for project Prac1 ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+TX.cc
+TX.cc: In member function 'virtual void Txc::handleMessage(cMessage*)':
+TX.cc:58:11: warning: unused variable 'me' [-Wunused-variable]
+Creating executable: out/gcc-debug//Prac1.exe
+20:23:18 **** Incremental Build of configuration gcc-debug for project Prac1 ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+20:36:06 **** Incremental Build of configuration gcc-debug for project Prac1 ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+TX.cc
+Creating executable: out/gcc-debug//Prac1.exe
+20:36:11 **** Incremental Build of configuration gcc-debug for project Prac1 ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+20:45:07 **** Incremental Build of configuration gcc-debug for project Prac1 ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+TX.cc
+Creating executable: out/gcc-debug//Prac1.exe
+20:45:10 **** Incremental Build of configuration gcc-debug for project Prac1 ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+20:46:57 **** Incremental Build of configuration gcc-debug for project Prac1 ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+TX.cc
+TX.cc: In member function 'virtual void Txc::initialize()':
+TX.cc:45:9: warning: unused variable 'receiver' [-Wunused-variable]
+Creating executable: out/gcc-debug//Prac1.exe
+20:47:39 **** Incremental Build of configuration gcc-debug for project Prac1 ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+TX.cc
+Creating executable: out/gcc-debug//Prac1.exe
+20:47:54 **** Incremental Build of configuration gcc-debug for project Prac1 ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+TX.cc
+Creating executable: out/gcc-debug//Prac1.exe
+20:51:50 **** Incremental Build of configuration gcc-debug for project Prac1 ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+TX.cc
+TX.cc: In member function 'virtual void Txc::handleMessage(cMessage*)':
+TX.cc:65:11: warning: unused variable 'me' [-Wunused-variable]
+Creating executable: out/gcc-debug//Prac1.exe
+20:51:57 **** Incremental Build of configuration gcc-debug for project Prac1 ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+TX.cc
+Creating executable: out/gcc-debug//Prac1.exe
+20:51:59 **** Incremental Build of configuration gcc-debug for project Prac1 ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+20:52:31 **** Incremental Build of configuration gcc-debug for project Prac1 ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+20:53:29 **** Incremental Build of configuration gcc-debug for project Prac1 ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+20:55:47 **** Incremental Build of configuration gcc-debug for project Prac1 ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+20:56:43 **** Incremental Build of configuration gcc-debug for project Prac1 ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+20:57:24 **** Incremental Build of configuration gcc-debug for project Prac1 ****
+make MODE=debug CONFIGNAME=gcc-debug all 

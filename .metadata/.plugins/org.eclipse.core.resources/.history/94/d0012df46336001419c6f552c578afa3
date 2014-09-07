@@ -1,0 +1,352 @@
+#include <stdio.h>
+#include <string.h>
+#include <omnetpp.h>
+
+class Txc : public cSimpleModule
+{
+    private:
+        cMessage *tictocMsg;
+        cMessage *event;
+        bool ack;
+        int replyingto;
+
+    public:
+        Txc();
+        virtual ~Txc();
+
+    protected:
+        virtual void initialize();                  // This initializes
+        virtual void handleMessage(cMessage *msg);  // This does the hard work
+        const char* generateMessageTo(int to);      // This creates the message
+        bool isMine(cMessage *msg);                 // This check if the message was sent to me
+        bool isLost(cMessage *msg);                 // This checks if a message was lost
+        int replyTo(cMessage *msg);                 // This figures out who I should reply to
+        bool wasMine(cMessage *msg);                // This check if my message was lost
+};
+
+Define_Module(Txc);
+
+Txc::Txc()
+{
+    // Let's start nice and clean
+    event = NULL;
+    tictocMsg = NULL;
+    ack = false;
+    replyingto = 0;
+}
+
+Txc::~Txc()
+{
+    // Cleaning up when you are done is always a good thing
+    cancelAndDelete(event);
+    delete tictocMsg;
+}
+
+void Txc::initialize()
+{
+    int receiver = par("receiver");
+    bool sender = par("sender");
+    event = new cMessage("event");
+
+    if (sender)
+    {
+        // I'm the one who has to get everything going
+        EV << "Let's get going, I'll just send a message to the receiver, but only in like 5 seconds, don't want to be over earger";
+        tictocMsg = new cMessage(generateMessageTo(receiver));
+        replyingto = receiver;
+        scheduleAt(5.0, event);
+    }
+}
+
+void Txc::handleMessage(cMessage *msg)
+{
+      EV << "So I just got this message:  " << msg << "\n";
+      simtime_t delay = par("delayTime");
+
+      // Check if I'm allowed to send my message
+      if(msg == event)
+      {
+          EV << "It's the event message, thus I can forward that message I almost forgot about\n";
+
+          // Randomly loose the message
+          if (uniform(0,1) < 0.1)
+          {
+              EV << "Darn it, I lost the message! I'm in so much trouble now, better just tell everyone, so we can try again\n";
+              tictocMsg = new cMessage("Lost");
+              ack = false;
+          }
+
+          // Send it
+          send(tictocMsg,"out");
+      }
+      else
+      {
+          EV << "I can't send yet, but let's see what I received\n";
+
+          // Check if message was lost
+          if(isLost(msg))
+          {
+              EV << "Ah someone lost a message\n";
+              if(ack)
+              {
+                  // My message was lost, re-send
+                  EV << "My message was lost, I'll just re-send it\n";
+                  tictocMsg = new cMessage(generateMessageTo(replyingto));
+
+                  // Cancel whatever I did before
+                  cancelEvent(event);
+
+                  // Send it later
+                  scheduleAt(simTime()+delay, event);
+              }
+              else
+              {
+                  EV << "Not my message, I'm doing nothing\n";
+                  ack = false;
+                  delete msg;
+
+                  // Cancel whatever I did before
+                  cancelEvent(event);
+              }
+          }
+          else
+          {
+              if(isMine(msg))
+              {
+                  // The message was mine, I should reply
+                  EV << "The message was for me, so I'll reply... later, in like "<< delay << " seconds\n";
+                  replyingto = replyTo(msg);
+                  tictocMsg = new cMessage(generateMessageTo(replyingto));
+
+                  // Just to remember that I sent a message, I better get a reply
+                  ack = true;
+
+                  // Cancel whatever I did before
+                  cancelEvent(event);
+
+                  // Send it later
+                  scheduleAt(simTime()+delay, event);
+              }
+              else
+              {
+                 EV << "Not my message, I'm doing nothing\n";
+                 delete msg;
+                 ack = false;
+
+                 // Cancel whatever I did before
+                 cancelEvent(event);
+              }
+          }
+      }
+}
+
+const char* Txc::generateMessageTo(int to)
+{
+    // Start by finding yourself
+    int me = par("me");
+    char buffer[5];
+    std::string msg = "r";
+
+    // I r (me)
+    msg = msg + itoa(me,buffer,10);
+
+    // I wanna send to r (you)
+    msg = msg + "r";
+    msg = msg + itoa(to,buffer,10);
+
+    // I got this, now let's get it on the move
+    return msg.c_str();
+}
+
+bool Txc::isMine(cMessage *msg)
+{
+    // Get the message into a usable variable
+    std::string msgstring = msg->getFullName();
+
+    // This message is for:
+    int who = msgstring[msgstring.size()-1] - '0';
+    int me =  par("me");
+
+    // Am I the one?
+    if(me == who)
+    {
+        // Yeah it's for me!
+        return true;
+    }
+    else
+    {
+        // Not mine... I'm sad :(
+        return false;
+    }
+}
+
+bool Txc::wasMine(cMessage *msg)
+{
+    // Get the message into a usable variable
+    std::string msgstring = msg->getFullName();
+
+    // This message is for:
+    int who = msgstring[1] - '0';
+    int me =  par("me");
+
+    // Am I the one?
+    if(me == who)
+    {
+        // Yeah it's for me!
+        return true;
+    }
+    else
+    {
+        // Not mine... I'm sad :(
+        return false;
+    }
+}
+
+bool Txc::isLost(cMessage *msg)
+{
+    // Get the message into a usable variable
+    std::string msgstring = msg->getFullName();
+
+    // Was a message lost?
+    if(msgstring.compare("Lost") != 0)
+    {
+        // Nope, it's all good. Great job guys 8)
+        return false;
+    }
+    else
+    {
+        // Ugh, we messed up somewhere
+        return true;
+    }
+}
+
+int Txc::replyTo(cMessage *msg)
+{
+    // Get the message into a usable variable
+    std::string msgstring = msg->getFullName();
+
+    // Reply to this guy
+    return msgstring[1] - '0';
+}
+
+class Hub : public cSimpleModule
+{
+    private:
+        cMessage *tictocMsg;
+        cMessage *event;
+
+    public:
+        Hub();
+        virtual ~Hub();
+
+    protected:
+        virtual void initialize();                  // This initializes
+        virtual void handleMessage(cMessage *msg);  // This does the hard work
+        virtual void forwardMessage(cMessage *msg);
+        virtual void forwardMessageToAll(cMessage *msg);
+        bool isLost(cMessage *msg);                 // This checks if a message was lost
+};
+
+Define_Module(Hub);
+
+Hub::Hub()
+{
+    // Let's start nice and clean
+    event = NULL;
+    tictocMsg = NULL;
+    ack = false;
+    replyingto = 0;
+}
+
+Hub::~Hub()
+{
+    // Cleaning up when you are done is always a good thing
+    cancelAndDelete(event);
+    delete tictocMsg;
+}
+
+void Hub::initialize()
+{
+    event = new cMessage("event");
+}
+
+void Hub::handleMessage(cMessage *msg)
+{
+    EV << "So I just got this message:  " << msg << "\n";
+    simtime_t delay = par("delayTime");
+
+    // Check if I'm allowed to send my message
+    if(msg == event)
+    {
+        EV << "It's the event message, thus I can forward that message I almost forgot about\n";
+
+        // Randomly loose the message
+        if (uniform(0,1) < 0.1)
+        {
+            EV << "Darn it, I lost the message! I'm in so much trouble now, better just tell everyone, so we can try again\n";
+            tictocMsg = new cMessage("Lost");
+        }
+
+         // Send it
+        if(isLost(tictocMsg))
+        {
+            forwardMessageToAll(tictocMsg);
+        }
+        else
+        {
+            forwardMessage(tictocMsg);
+        }
+     }
+     else
+     {
+          // Pass to all
+          EV << "The message was not for me, but I'll pass it on... when I get to it, in "<< delay << " seconds\n";
+          tictocMsg = msg;
+          ack = false;
+
+          // Send it later
+          scheduleAt(simTime()+delay, event);
+     }
+}
+
+bool Hub::isLost(cMessage *msg)
+{
+    // Get the message into a usable variable
+       std::string msgstring = msg->getFullName();
+
+       // Was a message lost?
+       if(msgstring.compare("Lost") != 0)
+       {
+           // Nope, it's all good. Great job guys 8)
+           return false;
+       }
+       else
+       {
+           // Ugh, we messed up somewhere
+           return true;
+       }
+}
+
+void Hub::forwardMessage(cMessage *msg)
+{
+    // Get the message into a usable variable
+    std::string msgstring = msg->getFullName();
+    int forwardto = msgstring[msgstring.size()-1] - '0' - 1;
+
+    EV << "Forwarding message " << msg << " on port out[" << forwardto << "]\n";
+    send(msg, "out", forwardto);
+}
+
+void Hub::forwardMessageToAll(cMessage *msg)
+{
+    int n = gateSize("out");
+    cMessage *dup;
+    for (int i = 0; i < n; i++)
+    {
+        dup = msg->dup();
+        EV << "Forwarding message " << dup << " on port out[" << i << "]\n";
+        send(dup, "out", i);
+    }
+
+
+}

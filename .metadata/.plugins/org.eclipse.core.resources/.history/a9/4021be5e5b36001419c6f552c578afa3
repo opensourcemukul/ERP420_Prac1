@@ -1,0 +1,56 @@
+simple Txc
+{
+    parameters:
+        @display("i=abstract/penguin");    	// Lets make it pretty
+        int delayTime = default(2);     	// How long will this guy take to reply?
+        int me = default(0);				// Who is this?
+        bool sender = default(false);   	// Is this guy going to start the conversation
+        int receiver = default(1);      	// who is this guy talking to?
+    gates:
+        input in;						
+        output out;
+}
+
+simple Hub
+{
+    parameters:
+        @display("i=block/routing");
+    gates:
+        input in[]; 						 // declare in[] and out[] to be vector gates
+        output out[];
+}
+
+network star
+{
+    @display("bgb=361,189");
+    submodules:
+        r1: Txc {
+            parameters:
+                @display("i=,green;p=120,83");
+        }
+        r2: Txc {
+            parameters:
+                @display("i=,gold;p=210,31");
+        }
+        r3: Txc {
+            parameters:
+                @display("i=,blue;p=303,83");
+        }
+        r4: Txc {
+            parameters:
+                @display("i=,red;p=210,141");
+        }
+        hub: Hub;
+    connections:
+        r1.out --> {  delay = 100ms; } --> hub.in[1];
+        r2.out --> {  delay = 100ms; } --> hub.in[2];
+        r3.out --> {  delay = 100ms; } --> hub.in[3];
+        r4.out --> {  delay = 100ms; } --> hub.in[4];
+        
+        hub[1].in <-- {  delay = 100ms; } <-- r1.out;
+        hub[2].in <-- {  delay = 100ms; } <-- r2.out;
+        hub[3].in <-- {  delay = 100ms; } <-- r3.out;
+        hub[4].in <-- {  delay = 100ms; } <-- r4.out;
+}
+
+

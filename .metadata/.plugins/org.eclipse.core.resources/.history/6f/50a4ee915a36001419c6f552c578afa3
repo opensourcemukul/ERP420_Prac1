@@ -1,0 +1,41 @@
+simple Txc
+{
+    parameters:
+        @display("i=abstract/penguin");    	// Lets make it pretty
+        int delayTime = default(2);     	// How long will this guy take to reply?
+        int me = default(0);				// Who is this?
+        bool sender = default(false);   	// Is this guy going to start the conversation
+        int receiver = default(1);      	// who is this guy talking to?
+    gates:
+        input in;						
+        output out;
+}
+
+network star
+{
+    @display("bgb=361,189");
+    submodules:
+        r1: Txc {
+            parameters:
+                @display("i=,green;p=120,83");
+        }
+        r2: Txc {
+            parameters:
+                @display("i=,gold;p=210,31");
+        }
+        r3: Txc {
+            parameters:
+                @display("i=,blue;p=303,83");
+        }
+        r4: Txc {
+            parameters:
+                @display("i=,red;p=210,141");
+        }
+    connections:
+        r1.out --> {  delay = 100ms; } --> r2.in;
+        r2.out --> {  delay = 100ms; } --> r3.in;
+        r3.out --> {  delay = 100ms; } --> r4.in;
+        r4.out --> {  delay = 100ms; } --> r1.in;
+}
+
+

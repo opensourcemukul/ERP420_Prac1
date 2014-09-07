@@ -1,125 +1,235 @@
-20:06:45 **** Clean-only build of configuration gcc-debug for project Prac1 ****
+09:11:54 **** Clean-only build of configuration gcc-debug for project Star ****
 make MODE=debug CONFIGNAME=gcc-debug clean 
-make: *** No rule to make target `clean'.  Stop.
-20:06:51 **** Build of configuration gcc-debug for project Prac1 ****
+Cleaning...
+rm: cannot remove `Star.exe': Permission denied
+make: [clean] Error 1 (ignored)
+09:12:04 **** Incremental Build of configuration gcc-debug for project Ring ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+09:12:04 **** Build of configuration gcc-debug for project Star ****
 make MODE=debug CONFIGNAME=gcc-debug all 
 TX.cc
-Creating executable: out/gcc-debug//Prac1.exe
-ln: cannot remove `./Prac1.exe': Permission denied
+Creating executable: out/gcc-debug//Star.exe
+ln: cannot remove `./Star.exe': Permission denied
 make: *** [all] Error 1
-20:07:56 **** Incremental Build of configuration gcc-debug for project Prac1 ****
+09:12:08 **** Incremental Build of configuration gcc-debug for project Ring ****
 make MODE=debug CONFIGNAME=gcc-debug all 
-20:08:01 **** Incremental Build of configuration gcc-debug for project Prac1 ****
+09:12:09 **** Incremental Build of configuration gcc-debug for project Star ****
 make MODE=debug CONFIGNAME=gcc-debug all 
-20:09:30 **** Incremental Build of configuration gcc-debug for project Prac1 ****
+ln: cannot remove `./Star.exe': Permission denied
+make: *** [all] Error 1
+09:12:33 **** Incremental Build of configuration gcc-debug for project Ring ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+09:12:34 **** Incremental Build of configuration gcc-debug for project Star ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+ln: cannot remove `./Star.exe': Permission denied
+make: *** [all] Error 1
+09:12:45 **** Incremental Build of configuration gcc-debug for project Ring ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+09:12:45 **** Incremental Build of configuration gcc-debug for project Star ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+ln: cannot remove `./Star.exe': Permission denied
+make: *** [all] Error 1
+09:12:48 **** Incremental Build of configuration gcc-debug for project Ring ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+09:12:49 **** Incremental Build of configuration gcc-debug for project Star ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+ln: cannot remove `./Star.exe': Permission denied
+make: *** [all] Error 1
+09:13:49 **** Incremental Build of configuration gcc-debug for project Ring ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+09:13:49 **** Incremental Build of configuration gcc-debug for project Star ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+ln: cannot remove `./Star.exe': Permission denied
+make: *** [all] Error 1
+09:13:53 **** Incremental Build of configuration gcc-debug for project Ring ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+09:13:54 **** Incremental Build of configuration gcc-debug for project Star ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+ln: cannot remove `./Star.exe': Permission denied
+make: *** [all] Error 1
+09:19:25 **** Incremental Build of configuration gcc-debug for project Ring ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+09:19:25 **** Incremental Build of configuration gcc-debug for project Star ****
 make MODE=debug CONFIGNAME=gcc-debug all 
 TX.cc
-Creating executable: out/gcc-debug//Prac1.exe
-20:10:51 **** Incremental Build of configuration gcc-debug for project Prac1 ****
+Creating executable: out/gcc-debug//Star.exe
+09:19:30 **** Incremental Build of configuration gcc-debug for project Ring ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+09:19:30 **** Incremental Build of configuration gcc-debug for project Star ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+09:20:40 **** Incremental Build of configuration gcc-debug for project Ring ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+09:20:40 **** Incremental Build of configuration gcc-debug for project Star ****
 make MODE=debug CONFIGNAME=gcc-debug all 
 TX.cc
-Creating executable: out/gcc-debug//Prac1.exe
-20:10:54 **** Incremental Build of configuration gcc-debug for project Prac1 ****
+Creating executable: out/gcc-debug//Star.exe
+09:20:43 **** Incremental Build of configuration gcc-debug for project Ring ****
 make MODE=debug CONFIGNAME=gcc-debug all 
-20:11:49 **** Incremental Build of configuration gcc-debug for project Prac1 ****
+09:20:44 **** Incremental Build of configuration gcc-debug for project Star ****
 make MODE=debug CONFIGNAME=gcc-debug all 
-TX.cc
-Creating executable: out/gcc-debug//Prac1.exe
-20:11:52 **** Incremental Build of configuration gcc-debug for project Prac1 ****
+09:21:33 **** Incremental Build of configuration gcc-debug for project Ring ****
 make MODE=debug CONFIGNAME=gcc-debug all 
-20:12:39 **** Incremental Build of configuration gcc-debug for project Prac1 ****
+09:21:34 **** Incremental Build of configuration gcc-debug for project Star ****
 make MODE=debug CONFIGNAME=gcc-debug all 
 TX.cc
-Creating executable: out/gcc-debug//Prac1.exe
-20:15:18 **** Incremental Build of configuration gcc-debug for project Prac1 ****
+Creating executable: out/gcc-debug//Star.exe
+ln: cannot remove `./Star.exe': Permission denied
+make: *** [all] Error 1
+09:21:49 **** Incremental Build of configuration gcc-debug for project Ring ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+09:21:49 **** Incremental Build of configuration gcc-debug for project Star ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+09:21:54 **** Incremental Build of configuration gcc-debug for project Ring ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+09:21:54 **** Incremental Build of configuration gcc-debug for project Star ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+09:22:40 **** Incremental Build of configuration gcc-debug for project Ring ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+09:22:40 **** Incremental Build of configuration gcc-debug for project Star ****
 make MODE=debug CONFIGNAME=gcc-debug all 
 TX.cc
-Creating executable: out/gcc-debug//Prac1.exe
-20:15:21 **** Incremental Build of configuration gcc-debug for project Prac1 ****
+Creating executable: out/gcc-debug//Star.exe
+09:22:43 **** Incremental Build of configuration gcc-debug for project Ring ****
 make MODE=debug CONFIGNAME=gcc-debug all 
-20:21:29 **** Incremental Build of configuration gcc-debug for project Prac1 ****
+09:22:43 **** Incremental Build of configuration gcc-debug for project Star ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+09:25:36 **** Incremental Build of configuration gcc-debug for project Ring ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+09:25:37 **** Incremental Build of configuration gcc-debug for project Star ****
 make MODE=debug CONFIGNAME=gcc-debug all 
 TX.cc
-TX.cc:169:6: error: redefinition of 'bool Txc::isLost(cMessage*)'
-TX.cc:154:6: error: 'bool Txc::isLost(cMessage*)' previously defined here
+Creating executable: out/gcc-debug//Star.exe
+09:25:40 **** Incremental Build of configuration gcc-debug for project Ring ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+09:25:41 **** Incremental Build of configuration gcc-debug for project Star ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+09:26:39 **** Incremental Build of configuration gcc-debug for project Ring ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+09:26:39 **** Incremental Build of configuration gcc-debug for project Star ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+TX.cc
+Creating executable: out/gcc-debug//Star.exe
+09:26:42 **** Incremental Build of configuration gcc-debug for project Ring ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+09:26:42 **** Incremental Build of configuration gcc-debug for project Star ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+09:27:18 **** Incremental Build of configuration gcc-debug for project Ring ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+09:27:18 **** Incremental Build of configuration gcc-debug for project Star ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+TX.cc
+Creating executable: out/gcc-debug//Star.exe
+09:27:20 **** Incremental Build of configuration gcc-debug for project Ring ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+09:27:21 **** Incremental Build of configuration gcc-debug for project Star ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+09:29:11 **** Incremental Build of configuration gcc-debug for project Ring ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+09:29:12 **** Incremental Build of configuration gcc-debug for project Star ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+TX.cc
+Creating executable: out/gcc-debug//Star.exe
+09:29:14 **** Incremental Build of configuration gcc-debug for project Ring ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+09:29:15 **** Incremental Build of configuration gcc-debug for project Star ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+09:31:07 **** Incremental Build of configuration gcc-debug for project Ring ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+09:31:08 **** Incremental Build of configuration gcc-debug for project Star ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+09:32:29 **** Incremental Build of configuration gcc-debug for project Ring ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+09:32:30 **** Incremental Build of configuration gcc-debug for project Star ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+TX.cc
+Creating executable: out/gcc-debug//Star.exe
+09:32:32 **** Incremental Build of configuration gcc-debug for project Ring ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+09:32:33 **** Incremental Build of configuration gcc-debug for project Star ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+09:34:36 **** Incremental Build of configuration gcc-debug for project Ring ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+09:34:37 **** Incremental Build of configuration gcc-debug for project Star ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+TX.cc
+Creating executable: out/gcc-debug//Star.exe
+09:37:02 **** Incremental Build of configuration gcc-debug for project Ring ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+09:37:02 **** Incremental Build of configuration gcc-debug for project Star ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+TX.cc
+Creating executable: out/gcc-debug//Star.exe
+09:37:05 **** Incremental Build of configuration gcc-debug for project Ring ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+09:37:06 **** Incremental Build of configuration gcc-debug for project Star ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+09:39:06 **** Incremental Build of configuration gcc-debug for project Ring ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+09:39:06 **** Incremental Build of configuration gcc-debug for project Star ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+TX.cc
+Creating executable: out/gcc-debug//Star.exe
+09:41:24 **** Incremental Build of configuration gcc-debug for project Ring ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+09:41:27 **** Incremental Build of configuration gcc-debug for project Star ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+TX.cc
+Creating executable: out/gcc-debug//Star.exe
+09:41:34 **** Incremental Build of configuration gcc-debug for project Ring ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+09:41:35 **** Incremental Build of configuration gcc-debug for project Star ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+09:44:50 **** Incremental Build of configuration gcc-debug for project Ring ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+09:44:50 **** Incremental Build of configuration gcc-debug for project Star ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+TX.cc
+Creating executable: out/gcc-debug//Star.exe
+09:44:53 **** Incremental Build of configuration gcc-debug for project Ring ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+09:44:53 **** Incremental Build of configuration gcc-debug for project Star ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+09:47:13 **** Incremental Build of configuration gcc-debug for project Ring ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+09:47:13 **** Incremental Build of configuration gcc-debug for project Star ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+TX.cc
+Creating executable: out/gcc-debug//Star.exe
+09:47:16 **** Incremental Build of configuration gcc-debug for project Ring ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+09:47:17 **** Incremental Build of configuration gcc-debug for project Star ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+09:48:47 **** Incremental Build of configuration gcc-debug for project Ring ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+09:48:47 **** Incremental Build of configuration gcc-debug for project Star ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+TX.cc
+Creating executable: out/gcc-debug//Star.exe
+09:49:59 **** Incremental Build of configuration gcc-debug for project Ring ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+09:50:00 **** Incremental Build of configuration gcc-debug for project Star ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+TX.cc
+Creating executable: out/gcc-debug//Star.exe
+09:55:09 **** Incremental Build of configuration gcc-debug for project Ring ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+09:55:09 **** Incremental Build of configuration gcc-debug for project Star ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+TX.cc
+TX.cc: In member function 'virtual void Hub::handleMessage(cMessage*)':
+TX.cc:305:11: error: 'ack' was not declared in this scope
 make: *** [out/gcc-debug//TX.o] Error 1
-20:21:43 **** Incremental Build of configuration gcc-debug for project Prac1 ****
+09:55:13 **** Incremental Build of configuration gcc-debug for project Ring ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+09:55:14 **** Incremental Build of configuration gcc-debug for project Star ****
 make MODE=debug CONFIGNAME=gcc-debug all 
 TX.cc
-TX.cc:154:6: error: prototype for 'bool Txc::replyTo(cMessage*)' does not match any in class 'Txc'
-TX.cc:22:13: error: candidate is: int Txc::replyTo(cMessage*)
-TX.cc:169:5: error: prototype for 'int Txc::isLost(cMessage*)' does not match any in class 'Txc'
-TX.cc:21:14: error: candidate is: bool Txc::isLost(cMessage*)
+TX.cc: In member function 'virtual void Hub::handleMessage(cMessage*)':
+TX.cc:305:11: error: 'ack' was not declared in this scope
 make: *** [out/gcc-debug//TX.o] Error 1
-20:21:53 **** Incremental Build of configuration gcc-debug for project Prac1 ****
+09:56:04 **** Incremental Build of configuration gcc-debug for project Ring ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+09:56:05 **** Incremental Build of configuration gcc-debug for project Star ****
 make MODE=debug CONFIGNAME=gcc-debug all 
 TX.cc
-TX.cc: In member function 'int Txc::replyTo(cMessage*)':
-TX.cc:173:29: error: invalid conversion from 'char' to 'const char*' [-fpermissive]
-In file included from d:/Programs/omnetpp-4.5/include/simutil.h:25:0,
-                 from d:/Programs/omnetpp-4.5/include/cownedobject.h:24,
-                 from d:/Programs/omnetpp-4.5/include/carray.h:23,
-                 from d:/Programs/omnetpp-4.5/include/omnetpp.h:21,
-                 from TX.cc:3:
-d:\programs\omnetpp-4.5\mingw\bin\../lib/gcc/mingw32/4.7.2/../../../../include/stdlib.h:304:37: error:   initializing argument 1 of 'int atoi(const char*)' [-fpermissive]
-make: *** [out/gcc-debug//TX.o] Error 1
-20:22:12 **** Incremental Build of configuration gcc-debug for project Prac1 ****
-make MODE=debug CONFIGNAME=gcc-debug all 
-TX.cc
-Creating executable: out/gcc-debug//Prac1.exe
-20:23:13 **** Incremental Build of configuration gcc-debug for project Prac1 ****
-make MODE=debug CONFIGNAME=gcc-debug all 
-TX.cc
-TX.cc: In member function 'virtual void Txc::handleMessage(cMessage*)':
-TX.cc:58:11: warning: unused variable 'me' [-Wunused-variable]
-Creating executable: out/gcc-debug//Prac1.exe
-20:23:18 **** Incremental Build of configuration gcc-debug for project Prac1 ****
-make MODE=debug CONFIGNAME=gcc-debug all 
-20:36:06 **** Incremental Build of configuration gcc-debug for project Prac1 ****
-make MODE=debug CONFIGNAME=gcc-debug all 
-TX.cc
-Creating executable: out/gcc-debug//Prac1.exe
-20:36:11 **** Incremental Build of configuration gcc-debug for project Prac1 ****
-make MODE=debug CONFIGNAME=gcc-debug all 
-20:45:07 **** Incremental Build of configuration gcc-debug for project Prac1 ****
-make MODE=debug CONFIGNAME=gcc-debug all 
-TX.cc
-Creating executable: out/gcc-debug//Prac1.exe
-20:45:10 **** Incremental Build of configuration gcc-debug for project Prac1 ****
-make MODE=debug CONFIGNAME=gcc-debug all 
-20:46:57 **** Incremental Build of configuration gcc-debug for project Prac1 ****
-make MODE=debug CONFIGNAME=gcc-debug all 
-TX.cc
-TX.cc: In member function 'virtual void Txc::initialize()':
-TX.cc:45:9: warning: unused variable 'receiver' [-Wunused-variable]
-Creating executable: out/gcc-debug//Prac1.exe
-20:47:39 **** Incremental Build of configuration gcc-debug for project Prac1 ****
-make MODE=debug CONFIGNAME=gcc-debug all 
-TX.cc
-Creating executable: out/gcc-debug//Prac1.exe
-20:47:54 **** Incremental Build of configuration gcc-debug for project Prac1 ****
-make MODE=debug CONFIGNAME=gcc-debug all 
-TX.cc
-Creating executable: out/gcc-debug//Prac1.exe
-20:51:50 **** Incremental Build of configuration gcc-debug for project Prac1 ****
-make MODE=debug CONFIGNAME=gcc-debug all 
-TX.cc
-TX.cc: In member function 'virtual void Txc::handleMessage(cMessage*)':
-TX.cc:65:11: warning: unused variable 'me' [-Wunused-variable]
-Creating executable: out/gcc-debug//Prac1.exe
-20:51:57 **** Incremental Build of configuration gcc-debug for project Prac1 ****
-make MODE=debug CONFIGNAME=gcc-debug all 
-TX.cc
-Creating executable: out/gcc-debug//Prac1.exe
-20:51:59 **** Incremental Build of configuration gcc-debug for project Prac1 ****
-make MODE=debug CONFIGNAME=gcc-debug all 
-20:52:31 **** Incremental Build of configuration gcc-debug for project Prac1 ****
-make MODE=debug CONFIGNAME=gcc-debug all 
-20:53:29 **** Incremental Build of configuration gcc-debug for project Prac1 ****
-make MODE=debug CONFIGNAME=gcc-debug all 
-20:55:47 **** Incremental Build of configuration gcc-debug for project Prac1 ****
-make MODE=debug CONFIGNAME=gcc-debug all 
-20:56:43 **** Incremental Build of configuration gcc-debug for project Prac1 ****
-make MODE=debug CONFIGNAME=gcc-debug all 
-20:57:24 **** Incremental Build of configuration gcc-debug for project Prac1 ****
-make MODE=debug CONFIGNAME=gcc-debug all 
+Creating executable: out/gcc-debug//Star.exe

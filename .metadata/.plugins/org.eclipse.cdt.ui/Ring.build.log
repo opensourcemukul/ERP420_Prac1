@@ -1,0 +1,5 @@
+09:56:04 **** Incremental Build of configuration gcc-debug for project Ring ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+
+09:56:05 Build Finished (took 188ms)
+

@@ -1,0 +1,14 @@
+[General]
+network = star
+seed-0-mt=532567
+star.r1.delayTime = exponential(3)
+star.r2.delayTime = truncnormal(8,1)
+star.r3.delayTime = exponential(5)
+star.r4.delayTime = truncnormal(6,1)
+star.hub.delayTime =  exponential(4)
+star.r1.me = 1
+star.r2.me = 2
+star.r3.me = 3
+star.r4.me = 4
+star.r2.sender = true
+star.r2.receiver = 3

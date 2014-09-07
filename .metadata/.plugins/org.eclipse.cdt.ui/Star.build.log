@@ -1,0 +1,7 @@
+09:56:05 **** Incremental Build of configuration gcc-debug for project Star ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+TX.cc
+Creating executable: out/gcc-debug//Star.exe
+
+09:56:06 Build Finished (took 1s.184ms)
+
